@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side Inputs</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .input-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      width: calc(33.33% - 10px);
+      padding: 40px;
+      
+    }
+
+    .input-group:nth-child(4),
+    .input-group:nth-child(7) {
+      margin-top: 20px;
+      width: calc(50% - 10px);
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #4fc3f7;
+      background-color: #333;
+      color: #fff;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #555;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .output {
+      margin-top: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fetal Health Monitoring</h1>
+
+  <form action="/predict" method = "POST" >
+
+
+  <div class="container">
+    <div class="input-row">
+      <div class="input-group">
+        <label for="side1">prolongued_decelerations:</label>
+        <input type="text" name="pd" id="side1" min="0">
+      </div>
+      <div class="input-group">
+        <label for="side2">histogram_variance:</label>
+        <input type="text" name="hv" id="side2" min="0">
+      </div>
+      <div class="input-group">
+        <label for="side3">histogram_mode:</label>
+        <input type="text" name="hm" id="side3" min="0">
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="input-group">
+        <label for="side4">abnormal_short_term_variability:</label>
+        <input type="text" name="astv" id="side4" min="0">
+      </div>
+      <div class="input-group">
+        <label for="side5">histogram_median:</label>
+        <input type="text" name="hmed" id="side5" min="0">
+      </div>
+      <div class="input-group">
+        <label for="side6">accelerations:</label>
+        <input type="text" name="acc" id="side6" min="0">
+      </div>
+    </div>
+    <div class="input-row">
+      <div class="input-group">
+        <label for="side7">percentage_of_time_with_abnormal_long_term_variability:</label>
+        <input type="text"  name="pot" id="side7" min="0">
+      </div>
+      <div class="input-group">
+        <label for="side8">mean_value_of_long_term_variability:</label>
+        <input type="text"   name="mv"  id="side8" min="0">
+      </div>
+    </div>
+   
+    <div class="output">
+      <h2 id="result">  Prediction: {{prediction}}   </h2>
+      <br/>
+      <input type="submit" value="Predict" class="btn">
+    </div>
+  </div>
+
+
+</form>
+
+
+
+</body>
+
+</html>
